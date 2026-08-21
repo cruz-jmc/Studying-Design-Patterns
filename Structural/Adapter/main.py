@@ -1,56 +1,12 @@
-from player import MediaPlayer
-from player import AudioPlayer
+from player import AudioPlayer, MediaPlayer
 from video_adapter import VideoAdapter
 from video_player import VideoPlayer
-
+# importing all pieces we need
 
 MediaPlayer(AudioPlayer()).execute()
-
+# without Adapter, native player.
 MediaPlayer(VideoAdapter(VideoPlayer())).execute()
-
-
--------------------------
-
-from abc import ABC, abstractmethod
-
-
-class Target(ABC):
-    @abstractmethod
-    def play(self):
-        raise NotImplementedError
-
-
-class AudioPlayer(Target):
-    def play(self):
-        print("Reproduzindo áudio")
-
-
-class MediaPlayer:
-    def __init__(self, player: Target):
-        self.player = player
-
-    def execute(self):
-        self.player.play()
-
-# MediaPlayer(AudioPlayer()).execute()
-
-
------------------------------
-
-from player import Target
-
-
-class VideoAdapter(Target):
-    def __init__(self, adaptee):
-        self.adaptee = adaptee
-
-    def play(self):
-        self.adaptee.play_mp4()
-
------------------------------------
-
-class VideoPlayer:
-    def play_mp4(self):
-        print("Reproduzindo vídeo MP4")
-
-# VideoPlayer().play_mp4()
+# 1. instace "videoAdapter" (incompatible);
+# 2. Encapsulates in videoAdapter;
+# 3. pass videoAdapter to MediaPlayer;
+# 4. when execute, MediaPlayer call .play(), the adapter receives the command then call .play_mp4() in VideoPlayer.
