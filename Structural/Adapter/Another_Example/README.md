@@ -234,7 +234,7 @@ em:
 A implementação deste exercício está organizada da seguinte forma:
 
 ```text
-Adapter/
+Another_Example/
 │
 ├── main.py
 ├── data_loader.py
@@ -268,7 +268,7 @@ Responsável por instanciar os objetos e demonstrar o funcionamento do padrão.
 
 # ▶️ Execução
 
-A partir da pasta `Adapter`, execute:
+A partir da pasta `Another_Example`, execute:
 
 ```bash
 python main.py
