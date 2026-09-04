@@ -56,22 +56,84 @@ class Pasta(ItemDoAcervo):
         return sum(filho.contar_arquivos() for filho in self._filhos)
 
 
-    # Lista a pasta e todos os seus descendentes.
+    # Lista a estrutura da pasta.
     def listar(self, nivel: int = 0) -> None:
 
-        # Imprime o nome da pasta.
-        # A indentação depende do nível atual na árvore.
-        print(f"{'  ' * nivel}{self.nome}/ ({self.tamanho():.2f} MB)")
+        # Cria a indentação de acordo com o nível da árvore.
+        indentacao = "    " * nivel
+
+        # Exibe o nome da pasta.
+        # Também mostra seu tamanho total.
+        print(
+            f"{indentacao}{self.nome}/ "
+            f"({self.tamanho():.2f} MB)"
+        )
+
+        # Percorre todos os filhos.
+        for filho in self._filhos:
+
+            # Chama listar() para cada filho.
+            #
+            # O nível aumenta em 1.
+            #
+            # Isso cria a estrutura visual em árvore.
+            filho.listar(nivel + 1)
+
+
+    # Busca um arquivo ou pasta pelo nome.
+    def buscar(self, nome: str) -> ItemDoAcervo | None:
+
+        # Primeiro verifica se a própria pasta possui o nome procurado.
+        if self.nome == nome:
+
+            # Retorna a própria pasta.
+            return self
+
 
         # Percorre todos os filhos da pasta.
         for filho in self._filhos:
 
-            # Chama listar() para cada filho.
-            # O nível aumenta em 1.
-            # Isso cria a indentação e a recursão.
-            filho.listar(nivel + 1)
+            # Pede para o filho procurar o item.
+            encontrado = filho.buscar(nome)
 
-    def buscar # -> falta denifir o buscar
 
-    def caminho(self, nome: Str) -> str | None: # -> falta definir o caminho
+            # Verifica se o filho encontrou algo.
+            if encontrado is not None:
+
+                # Retorna imediatamente o item encontrado.
+                return encontrado
+
+
+        # Caso nenhum filho encontre o item,
+        # retorna None.
+        return None
+
+
+    # Busca o caminho completo de um arquivo ou pasta.
+    def caminho(self, nome: str) -> str | None:
+
+        # Primeiro verifica se estamos procurando a própria pasta.
         if self.nome == nome:
+
+            # Retorna o nome da própria pasta.
+            return self.nome
+
+
+        # Percorre todos os filhos.
+        for filho in self._filhos:
+
+            # Pede para o filho procurar o caminho.
+            caminho_encontrado = filho.caminho(nome)
+
+
+            # Verifica se o filho encontrou o item.
+            if caminho_encontrado is not None:
+
+                # Adiciona o nome da pasta atual
+                # antes do caminho retornado pelo filho.
+                return f"{self.nome}/{caminho_encontrado}"
+
+
+        # Caso nenhum filho encontre o item,
+        # retorna None.
+        return None

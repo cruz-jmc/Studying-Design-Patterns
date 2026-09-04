@@ -36,9 +36,39 @@ class Arquivo(ItemDoAcervo):
         return 1
 
 
-    # Implementa a operação de listar.
+    # Implementa a listagem do arquivo.
     def listar(self, nivel: int = 0) -> None:
 
-        # Imprime espaços de acordo com o nível atual da árvore,
-        # seguidos pelo nome e pelo tamanho do arquivo.
-        print(f"{'  ' * nivel}{self.nome} ({self._tamanho:.2f} MB)")
+        # Cria a indentação de acordo com o nível da árvore.
+        indentacao = "    " * nivel
+
+        # Exibe o nome e o tamanho do arquivo.
+        print(f"{indentacao}{self.nome} ({self._tamanho:.2f} MB)")
+
+
+    # Implementa a busca pelo nome.
+    def buscar(self, nome: str) -> ItemDoAcervo | None:
+
+        # Verifica se o nome procurado é o nome deste arquivo.
+        if self.nome == nome:
+
+            # Retorna o próprio arquivo.
+            return self
+
+        # Caso contrário, o arquivo não foi encontrado.
+        return None
+
+
+    # Implementa a busca pelo caminho.
+    def caminho(self, nome: str) -> str | None:
+
+        # Verifica se o nome procurado é o nome deste arquivo.
+        if self.nome == nome:
+
+            # Como o arquivo não possui filhos,
+            # seu caminho relativo é apenas seu próprio nome.
+            return self.nome
+
+        # Caso o nome seja diferente,
+        # o arquivo não foi encontrado.
+        return None

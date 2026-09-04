@@ -1,4 +1,4 @@
-# Design Patterns — Practicing
+# Studying Design Patterns
 
 Repositório destinado ao **estudo e à prática de Design Patterns (Padrões de Projeto)** utilizando a linguagem **Python**.
 
@@ -81,7 +81,7 @@ Padrões relacionados aos **algoritmos, comunicação e distribuição de respon
 O repositório é dividido de acordo com as três categorias de Design Patterns:
 
 ```text
-Practicing/
+Studying-Design-Patterns/
 │
 ├── Behavioral/
 │   ├── Chain_of_Responsibility/
@@ -184,11 +184,11 @@ Dessa forma, não é necessário abrir uma nova janela do VS Code para cada Desi
 
 ## 💻 Ambiente de desenvolvimento
 
-A recomendação é abrir a pasta **`Practicing` como pasta-raiz do projeto no VS Code**.
+A recomendação é abrir a pasta **`Studying-Design-Patterns` como pasta-raiz do projeto no VS Code**.
 
 ```text
 VS Code
-└── Practicing/
+└── Studying-Design-Patterns/
     ├── Behavioral/
     ├── Creational/
     └── Structural/
