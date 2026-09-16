@@ -3,11 +3,8 @@
 # Este exemplo representa uma implementação mais ingênua do problema,
 # utilizando vários if/else para decidir qual componente deve ser criado.
 
-# A intenção é comparar esta abordagem com a implementação organizada
-# em fábricas que será apresentada no exemplo principal.
+# A intenção é comparar esta abordagem com a implementação organizada em fábricas que será apresentada no exemplo principal.
 
-
-# Define uma classe para representar a aplicação.
 class Aplicacao:
 
     # O construtor recebe o tema que será utilizado pela aplicação.
