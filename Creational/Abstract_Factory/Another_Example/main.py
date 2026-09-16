@@ -22,7 +22,6 @@ class Aplicacao:
         self.janela.exibir()
 
 
-# Verifica se este arquivo está sendo executado diretamente.
 if __name__ == "__main__":
 
     # Cria uma fábrica para o tema Dark.
