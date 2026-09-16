@@ -8,6 +8,4 @@ class Janela(ABC):
     # Aqui funciona de forma parecida com a interface botao.
     @abstractmethod
     def exibir(self):
-
-        # Não existe implementação da janela genérica.
         pass
