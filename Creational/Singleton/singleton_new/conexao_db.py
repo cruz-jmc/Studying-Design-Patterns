@@ -1,6 +1,6 @@
 class ConexaoDB:
 
-    # Guarda a única instância criada pela classe.
+    # Guarda a única instância criada pela classe (variável global)
     _instancia = None
 
     # O método __new__ é responsável por criar uma nova instância.
